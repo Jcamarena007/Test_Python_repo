@@ -5,7 +5,15 @@ from bs4 import BeautifulSoup
 GOOGLE_CREDENTIALS_FILE = './gcred.json'
 
 def parse_markdown_to_html_table():
-    """ Parse README.md, convert to HTML, return table """
+    
+    readme = open("README.md", 'r').read()
+    html = markdown2.markdown(readme, extras=['tables'])
+    soup = BeautifulSoup(html, 'html.parser')
+    table = soup.find("table")
+    return table
+
+def parse_markdown_to_html_table():
+    "Parse README.md, convert to HTML, return table"
     readme = open("README.md", 'r').read()
     html = markdown2.markdown(readme, extras=['tables'])
     soup = BeautifulSoup(html, 'html.parser')
@@ -13,7 +21,11 @@ def parse_markdown_to_html_table():
     return table
 
 def parse_html_table(table):
-    """ Parse HTML table into proper formatted array that can be written to Google Sheet."""
+    """ 
+    Parse HTML table into proper formatted array that can be written to Google Sheet".
+    :param table: text
+    :return: text2
+    """
     result = []
     rows = table.findAll('tr')
     for row in rows:
