@@ -7,6 +7,8 @@ from bs4 import BeautifulSoup
 GOOGLE_CREDENTIALS_FILE = './gcred.json'
 EMAIL_SHEET_ID = "1TxQ_LSjOokvNnxyjlUpewA9Iq7F7Uknv0a6mh8dOQOk"
 
+# TEST Jcamarena 08/Julio/2022
+
 def parse_markdown_to_html_table():
     """ Parse README.md, convert to HTML, return table """
     readme = open("README.md", 'r', encoding="utf8").read()
